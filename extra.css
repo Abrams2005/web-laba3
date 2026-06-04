@@ -1,0 +1,8 @@
+input[type="submit"] {
+    background-color: black;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}

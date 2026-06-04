@@ -1,0 +1,230 @@
+@import url("extra.css");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background-color: #f3f3f1;
+    color: #000;
+}
+
+/* общий контейнер */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* левая часть */
+.left {
+    width: 50%;
+    background-color: #f6f6f4;
+    padding: 30px 70px;
+    box-sizing: border-box;
+}
+
+/* правая часть */
+.right {
+    width: 50%;
+    background-color: #93aa9f;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* фото справа */
+.right img {
+    width: 380px;
+    max-width: 75%;
+    height: auto;
+    display: block;
+}
+
+/* меню */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-bottom: 120px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 0;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* главный заголовок */
+h1 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 78px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* заголовки разделов */
+h2 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    margin-top: 80px;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* линия после заголовка */
+h2::after {
+    content: "";
+    width: 220px;
+    height: 1px;
+    background-color: black;
+    display: inline-block;
+}
+
+/* подзаголовок */
+.subtitle {
+    font-size: 34px;
+    margin-bottom: 90px;
+}
+
+/* обычный текст */
+p {
+    font-size: 22px;
+    line-height: 1.9;
+}
+
+/* списки */
+ul,
+ol {
+    font-size: 22px;
+    line-height: 1.9;
+    padding-left: 25px;
+}
+
+/* таблица */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #111;
+    color: white;
+}
+
+/* галерея */
+.gallery img {
+    width: 220px;
+    margin: 10px;
+}
+
+/* видео */
+video {
+    max-width: 100%;
+}
+
+/* форма */
+form {
+    margin-top: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+button,
+input[type="submit"] {
+    border: none;
+    padding: 14px 26px;
+    cursor: pointer;
+    width: auto;
+    font-size: 18px;
+}
+
+/* линия-разделитель */
+hr {
+    margin: 45px 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+/* подвал */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+/* адаптация под телефон */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .right {
+        position: static;
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .right img {
+        width: 300px;
+    }
+
+    nav {
+        justify-content: flex-start;
+        margin-bottom: 60px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 15px 5px 0;
+    }
+
+    h1 {
+        font-size: 54px;
+    }
+
+    h2 {
+        font-size: 24px;
+        letter-spacing: 8px;
+    }
+
+    h2::after {
+        width: 100px;
+    }
+}

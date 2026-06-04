@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- Тип документа HTML5 -->
+
+<html lang="ru">
+<!-- Язык страницы -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Кодировка -->
+
+    <meta name="description" content="Автобиография студента программиста">
+    <!-- Описание страницы -->
+
+    <meta name="keywords" content="автобиография, студент, программист">
+    <!-- Ключевые слова -->
+
+    <meta name="author" content="Адиль">
+    <!-- Автор -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Моя автобиография</title>
+    <!-- Заголовок вкладки -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Левая часть -->
+    <div class="left">
+
+        <!-- Навигация -->
+        <nav>
+            <a href="#about">обо мне</a>
+            <a href="#skills">навыки</a>
+            <a href="#hobby">увлечения</a>
+            <a href="#education">образование</a>
+            <a href="#gallery">галерея</a>
+            <a href="#project">проекты</a>
+            <a href="#contact">контакты</a>
+        </nav>
+
+        <!-- Главная информация -->
+        <h1>Адиль</h1>
+        <p class="subtitle">Студент-программист</p>
+
+        <p>
+            <b>Возраст:</b> <u>20 лет</u><br>
+            <b>Обучение:</b> Восход МАИ<br>
+            <b>Специальность:</b> Информатика и вычислительная техника
+        </p>
+
+        <hr>
+
+        <!-- Обо мне -->
+        <h2 id="about">Обо мне</h2>
+        <p>
+            <b>Меня зовут Адиль.</b> Я студент 1 курса
+            <i>филиала «Восход» Московского авиационного института.</i>
+        </p>
+
+        <p>
+            Мне <u>20 лет</u>.<br>
+            Обучаюсь по специальности «Информатика и вычислительная техника».<br>
+            Живу вместе с бабушкой.
+        </p>
+
+        <p>
+            Интересуюсь разработкой программ, базами данных и созданием приложений.
+            Изучаю программирование и хочу развиваться в сфере IT.
+        </p>
+
+        <hr>
+
+        <!-- Навыки -->
+        <h2 id="skills">Навыки</h2>
+        <ul>
+            <li>Delphi</li>
+            <li>C++ Form Application</li>
+            <li>HTML</li>
+            <li>Access и SQL</li>
+        </ul>
+
+        <hr>
+
+        <!-- Увлечения -->
+        <h2 id="hobby">Увлечения</h2>
+        <ul>
+            <li>Волонтерство</li>
+            <li>Путешествия</li>
+            <li>Выставки</li>
+            <li>Обучение новому</li>
+        </ul>
+
+        <hr>
+
+        <!-- Образование -->
+        <h2 id="education">Образование</h2>
+        <table>
+            <tr>
+                <th>Год</th>
+                <th>Учебное заведение</th>
+                <th>Специальность</th>
+            </tr>
+            <tr>
+                <td>2021–2025</td>
+                <td>ГБ ПОУ "БЭРТТ"</td>
+                <td>Информационные системы и программирование</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- Галерея -->
+        <h2 id="gallery">Галерея</h2>
+        <div class="gallery">
+            <img src="img/1.jpg" alt="Фото 1">
+            <img src="img/2.jpg" alt="Фото 2">
+            <img src="img/3.jpg" alt="Фото 3">
+        </div>
+
+        <hr>
+
+        <!-- Проекты -->
+        <h2 id="project">Проекты</h2>
+        <ol>
+            <li>Дипломный проект: библиотечная система</li>
+            <li>Учебные программы на Delphi</li>
+            <li>HTML-сайты</li>
+        </ol>
+
+        <hr>
+
+        <!-- Видео -->
+        <h2>Видео работы</h2>
+        <video controls width="500">
+            <source src="video/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+
+        <p><i>Видео моей работы</i></p>
+
+        <hr>
+
+        <!-- Аудио -->
+        <h2>Аудио работы</h2>
+        <audio controls>
+            <source src="audio/music.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+
+        <p><i>Аудиофайл</i></p>
+
+        <hr>
+
+        <!-- Контакты -->
+        <h2 id="contact">Контакты</h2>
+        <p>
+            Имя: Адиль<br>
+            Email: adil.abramov.05@mail.ru<br>
+            GitHub: Abrams2005
+        </p>
+
+        <!-- Форма -->
+        <form>
+            <label>
+                Имя:<br>
+                <input type="text" placeholder="Введите имя">
+            </label><br>
+
+            <label>
+                Email:<br>
+                <input type="email" placeholder="Введите email">
+            </label><br>
+
+            <label>
+                Сообщение:<br>
+                <textarea placeholder="Введите сообщение"></textarea>
+            </label><br>
+
+            <input type="submit" value="Отправить">
+        </form>
+
+        <hr>
+
+        <p class="footer">© 2026 Моя автобиография</p>
+    </div>
+
+    <!-- Правая часть -->
+    <div class="right">
+        <img src="img/3.jpg" alt="Моё фото">
+    </div>
+
+</div>
+
+</body>
+</html>
