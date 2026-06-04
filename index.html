@@ -55,6 +55,36 @@
 
         <hr>
 
+        <!-- Секция авторизации -->
+        <h2 id="auth">Авторизация</h2>
+        <div class="auth-section">
+            <h3>Вход в систему</h3>
+            <form id="loginForm">
+                <label>
+                    Логин:<br>
+                    <input type="text" id="username" placeholder="Введите логин" required>
+                </label><br>
+
+                <label>
+                    Пароль:<br>
+                    <input type="password" id="password" placeholder="Введите пароль" required>
+                </label><br>
+
+                <button type="submit">Вход</button>
+            </form>
+            <div id="authStatus" class="auth-status"></div>
+        </div>
+
+        <!-- Секция конвертера валют -->
+        <div id="converterSection" class="converter-section">
+            <h3>💱 Конвертер: Французские франки → Евро</h3>
+            <p>Коэффициент конвертации: 1 EUR = 6.55957 FFR</p>
+            <button onclick="startConversion()">Начать конвертацию</button>
+            <div id="converterResult" class="converter-result"></div>
+        </div>
+
+        <hr>
+
         <!-- Обо мне -->
         <h2 id="about">Обо мне</h2>
         <p>
@@ -195,6 +225,145 @@
     </div>
 
 </div>
+
+<!-- Подключение файла конвертера валют -->
+<script src="converter.js"></script>
+
+<!-- Основной JavaScript код -->
+<script>
+    /**
+     * Событие загрузки страницы
+     * Выводит приветственное сообщение в alert и консоль
+     */
+    window.addEventListener('load', function() {
+        // Создаём приветственное сообщение
+        const welcomeMessage = '👋 Добро пожаловать на мою автобиографию!\n\nДля доступа к конвертеру валют, пожалуйста, авторизуйтесь.\nЛогин: admin\nПароль: 12345';
+        
+        // Выводим сообщение в окне alert
+        alert(welcomeMessage);
+        
+        // Выводим то же сообщение в консоль разработчика
+        console.log('✅ Страница загружена');
+        console.log(welcomeMessage);
+    });
+
+    /**
+     * Обработчик отправки формы авторизации
+     * Проверяет учетные данные и показывает конвертер при успешной авторизации
+     */
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Предотвращаем стандартное поведение формы
+        e.preventDefault();
+
+        // Получаем значения из полей формы
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Статичные учетные данные для авторизации
+        const VALID_USERNAME = 'admin';
+        const VALID_PASSWORD = '12345';
+
+        // Получаем элементы для вывода статуса
+        const authStatus = document.getElementById('authStatus');
+        const converterSection = document.getElementById('converterSection');
+
+        // Проверяем правильность учетных данных
+        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+            // ✅ Успешная авторизация
+            const successMessage = '✅ Авторизация успешна! Добро пожаловать, ' + username + '!';
+            
+            // Выводим статус успеха
+            authStatus.textContent = successMessage;
+            authStatus.className = 'auth-status success';
+            
+            // Выводим сообщение в консоль
+            console.log(successMessage);
+
+            // Показываем секцию конвертера валют
+            converterSection.classList.add('visible');
+
+            // Очищаем форму
+            document.getElementById('loginForm').reset();
+
+            // Выводим информацию в консоль
+            console.log('🔓 Конвертер валют активирован');
+        } else {
+            // ❌ Ошибка авторизации
+            const errorMessage = '❌ Ошибка авторизации! Неверные логин или пароль.';
+            
+            // Выводим статус ошибки
+            authStatus.textContent = errorMessage;
+            authStatus.className = 'auth-status error';
+
+            // Скрываем конвертер
+            converterSection.classList.remove('visible');
+
+            // Выводим ошибку в консоль
+            console.error(errorMessage);
+            console.log('📝 Введено: username="' + username + '", password="' + password + '"');
+        }
+    });
+
+    /**
+     * Функция для запуска конвертации валют
+     * Использует prompt для получения значения в французских франках
+     * Вызывает функцию конвертации из converter.js
+     */
+    function startConversion() {
+        // Выводим сообщение в консоль
+        console.log('🔄 Запущена конвертация валют...');
+
+        // Получаем значение от пользователя через prompt
+        const francsInput = prompt('Введите сумму в старых французских франках (FFR):');
+
+        // Проверяем, нажал ли пользователь "Отмена"
+        if (francsInput === null) {
+            console.log('❌ Конвертация отменена пользователем');
+            return;
+        }
+
+        // Преобразуем строку в число
+        const francs = parseFloat(francsInput);
+
+        // Проверяем корректность введённого значения
+        if (isNaN(francs)) {
+            const errorMsg = '❌ Ошибка: вы ввели некорректное значение!';
+            alert(errorMsg);
+            console.error(errorMsg);
+            return;
+        }
+
+        if (francs < 0) {
+            const errorMsg = '❌ Ошибка: сумма не может быть отрицательной!';
+            alert(errorMsg);
+            console.error(errorMsg);
+            return;
+        }
+
+        // Вызываем функцию конвертации из converter.js
+        const euros = convertFrancsToEuro(francs);
+
+        // Получаем элемент для вывода результата
+        const resultElement = document.getElementById('converterResult');
+
+        if (euros !== null) {
+            // Формируем текст результата
+            const resultText = `💰 ${francs} FFR = ${euros} EUR`;
+
+            // Выводим результат в HTML
+            resultElement.textContent = resultText;
+            resultElement.classList.add('visible');
+
+            // Выводим результат в консоль
+            console.log(resultText);
+
+            // Показываем alert с результатом
+            alert(resultText);
+        } else {
+            resultElement.classList.remove('visible');
+        }
+    }
+</script>
 
 </body>
 </html>
