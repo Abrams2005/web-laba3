@@ -1,38 +1,14 @@
 <!DOCTYPE html>
-<!-- Тип документа HTML5 -->
-
 <html lang="ru">
-<!-- Язык страницы -->
-
 <head>
     <meta charset="UTF-8">
-    <!-- Кодировка -->
-
-    <meta name="description" content="Автобиография студента программиста">
-    <!-- Описание страницы -->
-
-    <meta name="keywords" content="автобиография, студент, программист">
-    <!-- Ключевые слова -->
-
-    <meta name="author" content="Адиль">
-    <!-- Автор -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Моя автобиография</title>
-    <!-- Заголовок вкладки -->
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <div class="container">
-
-    <!-- Левая часть -->
     <div class="left">
-
-        <!-- Навигация -->
         <nav>
             <a href="#about">обо мне</a>
             <a href="#skills">навыки</a>
@@ -43,69 +19,37 @@
             <a href="#contact">контакты</a>
         </nav>
 
-        <!-- Главная информация -->
         <h1>Адиль</h1>
         <p class="subtitle">Студент-программист</p>
-
         <p>
             <b>Возраст:</b> <u>20 лет</u><br>
             <b>Обучение:</b> Восход МАИ<br>
             <b>Специальность:</b> Информатика и вычислительная техника
         </p>
-
         <hr>
 
-        <!-- Секция авторизации -->
-        <h2 id="auth">Авторизация</h2>
-        <div class="auth-section">
-            <h3>Вход в систему</h3>
-            <form id="loginForm">
-                <label>
-                    Логин:<br>
-                    <input type="text" id="username" placeholder="Введите логин" required>
-                </label><br>
+        <!-- Авторизация -->
+        <h2>Авторизация</h2>
+        <form id="loginForm">
+            <label>Логин:<br><input type="text" id="username" required></label><br>
+            <label>Пароль:<br><input type="password" id="password" required></label><br>
+            <button type="submit">Вход</button>
+        </form>
+        <div id="authStatus"></div>
 
-                <label>
-                    Пароль:<br>
-                    <input type="password" id="password" placeholder="Введите пароль" required>
-                </label><br>
-
-                <button type="submit">Вход</button>
-            </form>
-            <div id="authStatus" class="auth-status"></div>
-        </div>
-
-        <!-- Секция конвертера валют -->
-        <div id="converterSection" class="converter-section">
-            <h3>💱 Конвертер: Французские франки → Евро</h3>
-            <p>Коэффициент конвертации: 1 EUR = 6.55957 FFR</p>
+        <!-- Конвертер валют -->
+        <div id="converterSection" style="display:none;">
+            <h2>💱 Конвертер: Французские франки → Евро</h2>
             <button onclick="startConversion()">Начать конвертацию</button>
-            <div id="converterResult" class="converter-result"></div>
+            <div id="converterResult"></div>
         </div>
-
         <hr>
 
-        <!-- Обо мне -->
         <h2 id="about">Обо мне</h2>
-        <p>
-            <b>Меня зовут Адиль.</b> Я студент 1 курса
-            <i>филиала «Восход» Московского авиационного института.</i>
-        </p>
-
-        <p>
-            Мне <u>20 лет</u>.<br>
-            Обучаюсь по специальности «Информатика и вычислительная техника».<br>
-            Живу вместе с бабушкой.
-        </p>
-
-        <p>
-            Интересуюсь разработкой программ, базами данных и созданием приложений.
-            Изучаю программирование и хочу развиваться в сфере IT.
-        </p>
-
+        <p><b>Меня зовут Адиль.</b> Я студент 1 курса филиала «Восход» МАИ.</p>
+        <p>Мне <u>20 лет</u>. Обучаюсь по специальности «Информатика и вычислительная техника».</p>
         <hr>
 
-        <!-- Навыки -->
         <h2 id="skills">Навыки</h2>
         <ul>
             <li>Delphi</li>
@@ -113,10 +57,8 @@
             <li>HTML</li>
             <li>Access и SQL</li>
         </ul>
-
         <hr>
 
-        <!-- Увлечения -->
         <h2 id="hobby">Увлечения</h2>
         <ul>
             <li>Волонтерство</li>
@@ -124,246 +66,105 @@
             <li>Выставки</li>
             <li>Обучение новому</li>
         </ul>
-
         <hr>
 
-        <!-- Образование -->
         <h2 id="education">Образование</h2>
         <table>
-            <tr>
-                <th>Год</th>
-                <th>Учебное заведение</th>
-                <th>Специальность</th>
-            </tr>
-            <tr>
-                <td>2021–2025</td>
-                <td>ГБ ПОУ "БЭРТТ"</td>
-                <td>Информационные системы и программирование</td>
-            </tr>
+            <tr><th>Год</th><th>Учебное заведение</th><th>Специальность</th></tr>
+            <tr><td>2021–2025</td><td>ГБ ПОУ "БЭРТТ"</td><td>Информационные системы и программирование</td></tr>
         </table>
-
         <hr>
 
-        <!-- Галерея -->
         <h2 id="gallery">Галерея</h2>
         <div class="gallery">
             <img src="img/1.jpg" alt="Фото 1">
             <img src="img/2.jpg" alt="Фото 2">
             <img src="img/3.jpg" alt="Фото 3">
         </div>
-
         <hr>
 
-        <!-- Проекты -->
         <h2 id="project">Проекты</h2>
         <ol>
             <li>Дипломный проект: библиотечная система</li>
             <li>Учебные программы на Delphi</li>
             <li>HTML-сайты</li>
         </ol>
-
         <hr>
 
-        <!-- Видео -->
-        <h2>Видео работы</h2>
-        <video controls width="500">
-            <source src="video/video.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-
-        <p><i>Видео моей работы</i></p>
-
-        <hr>
-
-        <!-- Аудио -->
-        <h2>Аудио работы</h2>
-        <audio controls>
-            <source src="audio/music.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудио.
-        </audio>
-
-        <p><i>Аудиофайл</i></p>
-
-        <hr>
-
-        <!-- Контакты -->
         <h2 id="contact">Контакты</h2>
-        <p>
-            Имя: Адиль<br>
-            Email: adil.abramov.05@mail.ru<br>
-            GitHub: Abrams2005
-        </p>
-
-        <!-- Форма -->
+        <p>Email: adil.abramov.05@mail.ru<br>GitHub: Abrams2005</p>
         <form>
-            <label>
-                Имя:<br>
-                <input type="text" placeholder="Введите имя">
-            </label><br>
-
-            <label>
-                Email:<br>
-                <input type="email" placeholder="Введите email">
-            </label><br>
-
-            <label>
-                Сообщение:<br>
-                <textarea placeholder="Введите сообщение"></textarea>
-            </label><br>
-
+            <input type="text" placeholder="Имя"><br>
+            <input type="email" placeholder="Email"><br>
+            <textarea placeholder="Сообщение"></textarea><br>
             <input type="submit" value="Отправить">
         </form>
-
         <hr>
-
         <p class="footer">© 2026 Моя автобиография</p>
     </div>
 
-    <!-- Правая часть -->
     <div class="right">
         <img src="img/3.jpg" alt="Моё фото">
     </div>
-
 </div>
 
-<!-- Подключение файла конвертера валют -->
 <script src="js/converter.js"></script>
-
-<!-- Основной JavaScript код -->
 <script>
-    /**
-     * Событие загрузки страницы
-     * Выводит приветственное сообщение в alert и консоль
-     */
+    // Приветствие при загрузке
     window.addEventListener('load', function() {
-        // Создаём приветственное сообщение
-        const welcomeMessage = '👋 Добро пожаловать на мою автобиографию!\n\nДля доступа к конвертеру валют, пожалуйста, авторизуйтесь.\n\nУчетные данные для входа:\nЛогин: admin\nПароль: 12345';
-        
-        // Выводим сообщение в окне alert
-        alert(welcomeMessage);
-        
-        // Выводим то же сообщение в консоль разработчика
+        const msg = '👋 Добро пожаловать!\n\nЛогин: admin\nПароль: 12345';
+        alert(msg);
         console.log('✅ Страница загружена');
-        console.log(welcomeMessage);
+        console.log(msg);
     });
 
-    /**
-     * Обработчик отправки формы авторизации
-     * Проверяет учетные данные и показывает конвертер при успешной авторизации
-     */
+    // Авторизация
     document.getElementById('loginForm').addEventListener('submit', function(e) {
-        // Предотвращаем стандартное поведение формы
         e.preventDefault();
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        const status = document.getElementById('authStatus');
+        const converter = document.getElementById('converterSection');
 
-        // Получаем значения из полей формы
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // Статичные учетные данные для авторизации
-        const VALID_USERNAME = 'admin';
-        const VALID_PASSWORD = '12345';
-
-        // Получаем элементы для вывода статуса
-        const authStatus = document.getElementById('authStatus');
-        const converterSection = document.getElementById('converterSection');
-
-        // Проверяем правильность учетных данных
-        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-            // ✅ Успешная авторизация
-            const successMessage = '✅ Авторизация успешна! Добро пожаловать, ' + username + '!';
-            
-            // Выводим статус успеха
-            authStatus.textContent = successMessage;
-            authStatus.className = 'auth-status success';
-            
-            // Выводим сообщение в консоль
-            console.log(successMessage);
-
-            // Показываем секцию конвертера валют
-            converterSection.classList.add('visible');
-
-            // Очищаем форму
+        if (user === 'admin' && pass === '12345') {
+            status.textContent = '✅ Авторизация успешна!';
+            status.style.color = 'green';
+            converter.style.display = 'block';
+            console.log('✅ Успешная авторизация: ' + user);
             document.getElementById('loginForm').reset();
-
-            // Выводим информацию в консоль
-            console.log('🔓 Конвертер валют активирован');
         } else {
-            // ❌ Ошибка авторизации
-            const errorMessage = '❌ Ошибка авторизации! Неверные логин или пароль.';
-            
-            // Выводим статус ошибки
-            authStatus.textContent = errorMessage;
-            authStatus.className = 'auth-status error';
-
-            // Скрываем конвертер
-            converterSection.classList.remove('visible');
-
-            // Выводим ошибку в консоль
-            console.error(errorMessage);
-            console.log('📝 Введено: username="' + username + '", password="' + password + '"');
+            status.textContent = '❌ Неверные логин или пароль!';
+            status.style.color = 'red';
+            converter.style.display = 'none';
+            console.error('❌ Ошибка авторизации. Введено: ' + user + ' / ' + pass);
         }
     });
 
-    /**
-     * Функция для запуска конвертации валют
-     * Использует prompt для получения значения в французских франках
-     * Вызывает функцию конвертации из converter.js
-     */
+    // Конвертация валют
     function startConversion() {
-        // Выводим сообщение в консоль
-        console.log('🔄 Запущена конвертация валют...');
-
-        // Получаем значение от пользователя через prompt
-        const francsInput = prompt('Введите сумму в старых французских франках (FFR):');
-
-        // Проверяем, нажал ли пользователь "Отмена"
-        if (francsInput === null) {
-            console.log('❌ Конвертация отменена пользователем');
+        console.log('🔄 Запущена конвертация...');
+        const input = prompt('Введите сумму в франках (FFR):');
+        
+        if (input === null) {
+            console.log('❌ Отменено');
             return;
         }
 
-        // Преобразуем строку в число
-        const francs = parseFloat(francsInput);
-
-        // Проверяем корректность введённого значения
-        if (isNaN(francs)) {
-            const errorMsg = '❌ Ошибка: вы ввели некорректное значение!';
-            alert(errorMsg);
-            console.error(errorMsg);
+        const francs = parseFloat(input);
+        if (isNaN(francs) || francs < 0) {
+            alert('❌ Ошибка: введите положительное число!');
+            console.error('❌ Некорректное значение: ' + input);
             return;
         }
 
-        if (francs < 0) {
-            const errorMsg = '❌ Ошибка: сумма не может быть отрицательной!';
-            alert(errorMsg);
-            console.error(errorMsg);
-            return;
-        }
-
-        // Вызываем функцию конвертации из converter.js
         const euros = convertFrancsToEuro(francs);
-
-        // Получаем элемент для вывода результата
-        const resultElement = document.getElementById('converterResult');
-
         if (euros !== null) {
-            // Формируем текст результата
-            const resultText = `💰 ${francs} FFR = ${euros} EUR`;
-
-            // Выводим результат в HTML
-            resultElement.textContent = resultText;
-            resultElement.classList.add('visible');
-
-            // Выводим результат в консоль
-            console.log(resultText);
-
-            // Показываем alert с результатом
-            alert(resultText);
-        } else {
-            resultElement.classList.remove('visible');
+            const result = `💰 ${francs} FFR = ${euros} EUR`;
+            document.getElementById('converterResult').textContent = result;
+            alert(result);
+            console.log(result);
         }
     }
 </script>
-
 </body>
 </html>
